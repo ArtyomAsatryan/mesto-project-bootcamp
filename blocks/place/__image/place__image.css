@@ -1,0 +1,6 @@
+.place__image {
+    min-width: 282px;
+    max-width: 480px;
+    width: 100%;
+    grid-area: image;
+}
