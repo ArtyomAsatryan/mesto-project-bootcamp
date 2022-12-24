@@ -1,3 +1,4 @@
+
 .place__elements {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -27,3 +28,5 @@
         justify-content: center;
     }
 }
+
+
