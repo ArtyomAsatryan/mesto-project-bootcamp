@@ -1,10 +1,47 @@
 .profile__avatar {
+  position: relative;
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
+  clip-path: circle(50%);
+  background-position: center;
+  background-size: cover;
 }
+
+.profile__avatar::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: opacity .2s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.profile__avatar:hover::after {
+  opacity: .8;
+}
+
+.profile__avatar::before {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  content: "";
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../images/pencil-edit-profile.svg);
+  transition: opacity .2s;
+  opacity: 0;
+}
+
+.profile__avatar:hover::before {
+  opacity: 1;
+}
+
 
 @media screen and (max-width: 900px) {
   .profile__avatar {

@@ -1,3 +1,7 @@
 .popup__container_type_image {
   margin-top: 25px;
+  width: fit-content;
+  max-height: fit-content;
+  background-color: transparent;
+  border-radius: 0;
 }

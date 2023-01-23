@@ -1,6 +1,10 @@
 .form__field-error {
-    font-weight: 400;
+    display: block;
+    position: absolute;
+    opacity: 1;
+    margin: -25px 0 0;
     font-size: 12px;
-    line-height: 15px;
-    height: 12px;
+    font-weight: 400;
+    line-height: 14.52px;
+    color: #FF0000;
 }
