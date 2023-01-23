@@ -21,4 +21,11 @@ export const inputPlaceUrl = document.querySelector('#place-img');
 export const cardsContainer = document.querySelector('.place__elements');
 export const popupImg = popupImage.querySelector('.opened-image__image');
 export const popupTxt = popupImage.querySelector('.opened-image__caption');
-
+export const mestoSelectors = {
+    formSelector: '.form',
+    inputSelector: '.form__field',
+    submitButtonSelector: '.form__submit-button',
+    inactiveButtonClass: 'form__submit-button_disabled',
+    inputErrorClass: 'form__field_type-error',
+    errorClass: 'form__field-error_visible',
+}

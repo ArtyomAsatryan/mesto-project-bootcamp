@@ -3,7 +3,7 @@ import '../pages/index.css';
 import {
   popups, popupAvatar, popupEdit, popupAdd, profileAvatar, buttonOpenEdit, buttonOpenAdd,
   formAvatar, formEdit, formAdd, userName, userAbout, inputUserName, inputUserAbout,
-  inputAvatarUrl, inputPlaceName, inputPlaceUrl, cardsContainer, formDelete
+  inputAvatarUrl, inputPlaceName, inputPlaceUrl, cardsContainer, formDelete, mestoSelectors
 } from '../components/constants.js';
 import { createCard, deleteCard } from '../components/card.js';
 import { revalidateForm, enableValidation } from '../components/validate.js';
@@ -15,15 +15,6 @@ import {
 import { renderLoading } from '../components/utils.js'
 
 export let userId;
-
-const mestoSelectors = {
-  formSelector: '.form',
-  inputSelector: '.form__field',
-  submitButtonSelector: '.form__submit-button',
-  inactiveButtonClass: 'form__submit-button_disabled',
-  inputErrorClass: 'form__field_type-error',
-  errorClass: 'form__field-error_visible',
-}
 
 profileAvatar.addEventListener('click', openPopupAvatar);
 buttonOpenEdit.addEventListener('click', openPopupEdit);
@@ -52,6 +43,7 @@ function submitFormAvatar(event) {
       profileAvatar.style.backgroundImage = `url(${userData.avatar})`;
     })
     .then(() => closePopup(popupAvatar))
+    .catch(handleError)
     .finally(() => { renderLoading(false, event.submitter) })
 }
 
@@ -64,6 +56,7 @@ function submitFormEdit(event) {
       userAbout.textContent = userData.about;
     })
     .then(() => closePopup(popupEdit))
+    .catch(handleError)
     .finally(() => { renderLoading(false, event.submitter) })
 }
 
@@ -75,6 +68,7 @@ function submitFormAdd(event) {
       cardsContainer.prepend(createCard(cards));
     })
     .then(() => closePopup(popupAdd))
+    .catch(handleError)
     .finally(() => { renderLoading(false, event.submitter) })
 }
 

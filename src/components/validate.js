@@ -32,24 +32,24 @@ export function revalidateForm(formElement, selectors) {
   inputList.forEach(function (inputElement) {
     hideInputError(inputElement, selectors);
   })
-  inactiveSubmitButton(buttonSubmit, selectors);
+  disableSubmitButton(buttonSubmit, selectors);
 }
 
-export function inactiveSubmitButton(buttonSubmit, { inactiveButtonClass }) {
+export function disableSubmitButton(buttonSubmit, { inactiveButtonClass }) {
   buttonSubmit.classList.add(inactiveButtonClass);
   buttonSubmit.disabled = true;
 }
 
-export function activeSubmitButton(buttonSubmit, { inactiveButtonClass }) {
+export function activateSubmitButton(buttonSubmit, { inactiveButtonClass }) {
   buttonSubmit.classList.remove(inactiveButtonClass);
   buttonSubmit.disabled = false;
 }
 
 export function toggleButtonState(inputList, buttonSubmit, selectors) {
   if (hasInvalidInput(inputList)) {
-    inactiveSubmitButton(buttonSubmit, selectors);
+    disableSubmitButton(buttonSubmit, selectors);
   } else {
-    activeSubmitButton(buttonSubmit, selectors);
+    activateSubmitButton(buttonSubmit, selectors);
   }
 }
 
